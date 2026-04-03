@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquaculture External Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="background-decor blur-1"></div>
+    <div class="background-decor blur-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <div class="icon-circle">🌊</div>
+                <h1>AquaMonitor <span class="badge">Third-Party Portal</span></h1>
+            </div>
+            <div class="status-indicator" id="connectionStatus">
+                <span class="dot"></span>
+                <span class="text">Disconnected</span>
+            </div>
+        </header>
+
+        <section class="auth-section glass">
+            <h2>Authentication</h2>
+            <p>Enter your API Key found in the main application's Reports page.</p>
+            <div class="input-group">
+                <input type="password" id="apiKey" placeholder="aq_xxxxxxxxxxxxxxxx">
+                <button id="connectBtn">Connect & Load</button>
+            </div>
+            <p class="error-msg" id="loginError"></p>
+        </section>
+
+        <main id="dashboard" class="hidden">
+            <div class="dashboard-grid">
+                <!-- Real-time Stats -->
+                <div class="glass stats-card">
+                    <h3>Live Temperature</h3>
+                    <div class="value" id="liveTemp">--<span>°C</span></div>
+                    <div class="meta" id="liveTime">Waiting for data...</div>
+                </div>
+
+                <div class="glass stats-card">
+                    <h3>pH Level</h3>
+                    <div class="value" id="livePh">--</div>
+                    <p id="phStatus" class="status-badge">N/A</p>
+                </div>
+
+                <div class="glass stats-card">
+                    <h3>Dissolved Oxygen</h3>
+                    <div class="value" id="liveDo">--<span>mg/L</span></div>
+                </div>
+
+                <div class="glass stats-card">
+                    <h3>Dissolved Nitrogen</h3>
+                    <div class="value" id="liveNitrate">--<span>mg/L</span></div>
+                </div>
+            </div>
+
+            <div class="glass alert-panel">
+                <div class="panel-header">
+                    <h3>Recent Alerts</h3>
+                    <span class="count" id="alertCount">0</span>
+                </div>
+                <div id="alertsList" class="alerts-list">
+                    <p class="empty-msg">No alerts detected in this session.</p>
+                </div>
+            </div>
+
+            <div class="glass data-table-panel">
+                <h3>Historical Data Highlights</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Station</th>
+                                <th>Temp</th>
+                                <th>pH</th>
+                                <th>DO</th>
+                                <th>Turbidity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTable">
+                            <tr>
+                                <td colspan="6" class="centered">Enter API Key to fetch history</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

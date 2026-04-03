@@ -1,0 +1,22 @@
+﻿species,image_url
+Clown Featherback,s3://fish-data-bucket/raw/fish_images/Clown Featherback.jpg
+Goldfish,s3://fish-data-bucket/raw/fish_images/Goldfish.jpg
+Gourami,s3://fish-data-bucket/raw/fish_images/Gourami.jpg 
+Green Spotted Puffer,s3://fish-data-bucket/raw/fish_images/Green Spotted Puffer.jpg
+Indian Carp,s3://fish-data-bucket/raw/fish_images/Indian Carp.jpg
+Indo-Pacific Tarpon,s3://fish-data-bucket/raw/fish_images/Indo-Pacific Tarpon.jpg
+Jaguar Gapote,s3://fish-data-bucket/raw/fish_images/Jaguar Gapote.jpg
+Janitor Fish,s3://fish-data-bucket/raw/fish_images/Janitor Fish.jpg
+Long-Snouted Pipefish,s3://fish-data-bucket/raw/fish_images/Long-Snouted Pipefish.jpg
+Mosquito Fish,s3://fish-data-bucket/raw/fish_images/Mosquito Fish.jpg
+mudfish,s3://fish-data-bucket/raw/fish_images/mudfish.jpg
+mullet,s3://fish-data-bucket/raw/fish_images/mullet.jpg
+Pangasius,s3://fish-data-bucket/raw/fish_images/Pangasius.jpg
+Perch 16,s3://fish-data-bucket/raw/fish_images/Perch 16.jpg
+Rohu,s3://fish-data-bucket/raw/fish_images/Rohu.jpg
+Scat_fish,s3://fish-data-bucket/raw/fish_images/Scat_fish.jpg
+Silver_Barb,s3://fish-data-bucket/raw/fish_images/Silver_Barb.jpg
+SilverCarp,s3://fish-data-bucket/raw/fish_images/SilverCarp.jpg
+SnakeHead,s3://fish-data-bucket/raw/fish_images/SnakeHead.jpg
+Tenpounder,s3://fish-data-bucket/raw/fish_images/Tenpounder.jpg
+Tilapia,s3://fish-data-bucket/raw/fish_images/Tilapia.jpg

@@ -1,0 +1,404 @@
+/* DigitalTwin.css */
+:root {
+  --dt-bg-dark: #0f172a;
+  --dt-card-bg: rgba(30, 41, 59, 0.7);
+  --dt-card-border: rgba(51, 65, 85, 0.5);
+  --dt-primary: #3b82f6;
+  --dt-secondary: #8b5cf6;
+  --dt-success: #10b981;
+  --dt-warning: #f59e0b;
+  --dt-danger: #ef4444;
+  --dt-text-main: #f8fafc;
+  --dt-text-muted: #94a3b8;
+}
+
+.dt-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--dt-text-main);
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.dt-title {
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  background: linear-gradient(135deg, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dt-title-icon {
+  color: #60a5fa;
+  animation: pulseIcon 2s infinite ease-in-out;
+}
+
+@keyframes pulseIcon {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; text-shadow: 0 0 10px #60a5fa; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.dt-subtitle {
+  color: var(--dt-text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.dt-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--dt-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+.dt-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--dt-success);
+  box-shadow: 0 0 8px var(--dt-success);
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: var(--dt-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--dt-card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* State Grid */
+.dt-state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.dt-stat-card {
+  background: var(--dt-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dt-card-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.dt-stat-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 41, 59, 0.85);
+}
+
+.dt-stat-warning {
+  border-left: 4px solid var(--dt-warning);
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.05) 0%, rgba(30, 41, 59, 0.7) 100%);
+}
+
+.dt-stat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dt-stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dt-stat-title {
+  color: var(--dt-text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.dt-stat-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dt-stat-current {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dt-stat-unit {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dt-text-muted);
+  margin-left: 0.25rem;
+}
+
+.dt-stat-optimal {
+  font-size: 0.85rem;
+  color: var(--dt-text-muted);
+  opacity: 0.8;
+}
+
+.dt-stat-progress {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.dt-stat-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Main Layout */
+.dt-main-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .dt-main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dt-side-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Chart Panel */
+.dt-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dt-panel-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.dt-legend {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--dt-text-muted);
+}
+
+.dt-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dt-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dt-dot.historical { background-color: var(--dt-primary); }
+.dt-dot.predicted { 
+  background-color: var(--dt-secondary); 
+  border: 2px dashed var(--dt-card-bg);
+}
+
+.dt-chart-wrapper {
+  margin-top: 1rem;
+}
+
+/* Simulator Section */
+.dt-panel-desc {
+  color: var(--dt-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.dt-slider-group {
+  margin-bottom: 1.5rem;
+}
+
+.dt-slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.dt-slider-icon { color: var(--dt-primary); }
+.dt-slider-icon.warning-icon { color: var(--dt-warning); }
+.dt-slider-icon.action-icon { color: var(--dt-success); }
+
+.dt-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.dt-slider:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dt-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--dt-primary);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  transition: transform 0.1s;
+}
+
+.dt-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.dt-slider.warning-slider::-webkit-slider-thumb {
+  background: var(--dt-warning);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.dt-slider.action-slider::-webkit-slider-thumb {
+  background: var(--dt-success);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.dt-reset-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--dt-text-main);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+}
+
+.dt-reset-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Insights Section */
+.dt-insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.dt-insight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  animation: slideInRight 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.dt-insight-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 3px solid var(--dt-danger);
+  color: #fca5a5;
+  animation-delay: 0.1s;
+}
+
+.dt-insight-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid var(--dt-warning);
+  color: #fcd34d;
+  animation-delay: 0.2s;
+}
+
+.dt-insight-safe {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 3px solid var(--dt-success);
+  color: #6ee7b7;
+  animation-delay: 0.1s;
+}
+
+.dt-insight-info {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px dashed rgba(59, 130, 246, 0.3);
+  color: var(--dt-text-muted);
+  animation-delay: 0.3s;
+}
+
+.dt-insight-icon {
+  margin-top: 2px;
+}
+
+.dt-insight-card p {
+  margin: 0;
+}
